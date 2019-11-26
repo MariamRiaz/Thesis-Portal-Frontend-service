@@ -13,10 +13,10 @@ export class ThesisTopicsComponent implements OnInit {
   constructor(private topicsService: TopicsService) { }
 
   ngOnInit() {
-    this.getPlayers();
+    this.getTopics();
   }
 
-  getPlayers() {
+  getTopics() {
     this.topicsService.getTopics().subscribe((x) => {
       this.topics = x
       console.log(this.topics)
