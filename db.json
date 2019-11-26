@@ -1,0 +1,8 @@
+{
+    "topics": [
+        { "name": "topic1", "department": "FIN", "details": "Details of the topic go here" },
+        { "name": "topic2", "department": "FIN", "details": "Details of the topic go here" },
+        { "name": "topic3", "department": "FIN", "details": "Details of the topic go here" },
+        { "name": "topic4", "department": "FIN", "details": "Details of the topic go here" }
+    ]
+  }

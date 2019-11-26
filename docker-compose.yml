@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  angular-service:
+    build: .
+    restart: always
+    network_mode: "host"
+    image: demo-angular-service
+    hostname: localhost
+    ports:
+      - 4201:4200
+    healthcheck:
+      test: "exit 0"
