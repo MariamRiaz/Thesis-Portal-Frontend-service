@@ -1,0 +1,145 @@
+<div class="container">
+    <div class="row border">
+      <div class="col-sm-12">
+        <form class="justify-content-center" #topicForm="ngForm" (ngSubmit)="onSubmit(topicForm)">
+          <div class="form-group row" >
+            <label for="title" class="col-sm-3 col-form-label">Title : </label>
+            <div class="col-sm-9" >
+              <div [ngClass]="{'has-error': !title.valid && isSubmitted}">
+                  <input type="text" class="form-control"  id="title" name="title"  aria-describedby="titleHelp" placeholder="Enter Thesis Topic Title" required [(ngModel)]="topic.title" #title="ngModel">
+  
+              </div>
+              
+             
+              <div class="alert alert-danger" *ngIf=" !title.valid && isSubmitted">
+                  This field is required
+                </div>
+            </div>
+  
+  
+          </div>
+          <div class="form-group row" >
+            <label for="title" class="col-sm-3 col-form-label">Research Group : </label>
+            <div class="col-sm-9" >
+              <div [ngClass]="{'has-error': !title.valid && isSubmitted}">
+                  <input type="text" class="form-control"  id="title" name="title"  aria-describedby="titleHelp" placeholder="Enter Research Group Here" required [(ngModel)]="topic.title" #title="ngModel">
+  
+              </div>
+              
+             
+              <div class="alert alert-danger" *ngIf=" !title.valid && isSubmitted">
+                  This field is required
+                </div>
+            </div>
+  
+  
+          </div>
+
+
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="supervisor">Supervisor : </label>
+            <div class="col-sm-9">
+                <div [ngClass]="{'has-error': !supField.valid && isSubmitted}">
+                  <input type="text" class="form-control"  id="supervisor" name="supvsr" placeholder="Name of the Supervisor"[(ngModel)]="topic.supvsr" required #supField="ngModel">
+                </div>
+              <div class="alert alert-danger" *ngIf=" !supField.valid && isSubmitted">
+                  This field is required
+                </div>
+              </div>
+  
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="desc">Description : </label>
+            <div class="col-sm-9"> 
+                <div [ngClass]="{'has-error': !descField.valid && isSubmitted}">
+                  <textarea class="form-control" rows="5"  id="Description" name="desc" placeholder="Please Enter Detailed desciption here" required [(ngModel)]="topic.desc" #descField="ngModel"></textarea>
+                </div>
+              <div class="alert alert-danger" *ngIf=" !descField.valid && isSubmitted">
+                  This field is required
+                </div>
+              </div>
+  
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="supervisor"> Must Have : </label>
+            <div class="col-sm-9">
+                <div [ngClass]="{'has-error': !keyfield.valid && isSubmitted}">
+                  <input type="text" class="form-control"  id="musthave" name="musthave" placeholder="Must Have Skills for People Applying"[(ngModel)]="topic.musthave" required #keyfield="ngModel">
+                </div>
+              <div class="alert alert-danger" *ngIf=" !keyfield.valid && isSubmitted">
+                  This field is required
+                </div>
+              </div>
+  
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="requirements">Nice to Have : </label>
+            <div class="col-sm-9">
+                <div [ngClass]="{'has-error': !reqfield.valid && isSubmitted}">
+                  <input type="text" class="form-control" id="nicetohave" name="nth" placeholder="Must Have Skills for People Applying" required [(ngModel)]="topic.nth" #reqfield="ngModel">
+                </div>
+              <div class="alert alert-danger" *ngIf=" !reqfield.valid && isSubmitted">
+                  This field is required
+                </div>
+              </div>
+  
+          </div>
+
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label" for="requirements">Contact Information : </label>
+            <div class="col-sm-9">
+                <div [ngClass]="{'has-error': !reqfield.valid && isSubmitted}">
+                  <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter the mode of contact and details" required [(ngModel)]="topic.contact" #reqfield="ngModel">
+                </div>
+              <div class="alert alert-danger" *ngIf=" !reqfield.valid && isSubmitted">
+                  This field is required
+                </div>
+              </div>
+  
+          </div>
+          <!-- <div class="form-group row input-group date" data-provide="datepicker">
+            <label class="col-sm-3 col-form-label" for="requirements">Start Date : </label>
+            <div class='input-group add-on col-sm-4 date datepicker' data-date-format="yyyy-mm-dd">
+                <div [ngClass]="{'has-error': !datefield.valid && isSubmitted}">
+              <input name='date' value="" type="text" required class="form-control date-picker" data-date-format="yyyy-mm-dd"  placeholder="DD-MM-YYYY" maxlength="10" [(ngModel)]="topic.date" #datefield="ngModel"/>
+                </div>
+              <div class="input-group-btn">
+                <button type="button" class="btn btn-default">
+                  <i class="fa fa-calendar"></i>
+                </button>
+              </div>
+              <div class="alert alert-danger" *ngIf=" !datefield.valid && isSubmitted">
+                  This field is required
+                </div>
+            </div>
+          </div> -->
+         
+          <div class="form-group row">
+              <label class="col-sm-3 col-form-label" for="requirements">Start Date : </label>
+              <div class="col-sm-3">
+                  <div [ngClass]="{'has-error': !datefield.valid && isSubmitted}">
+                  <div class="input-group">
+                      
+                      <input class="form-control" placeholder="YYYY-MM-DD"
+                             name="date" [(ngModel)]="topic.date" #datefield="ngModel" ngbDatepicker #d="ngbDatepicker">
+                      <div class="input-group-append">
+                        <button class="btn btn-outline-secondary fa fa-calendar" (click)="d.toggle()" type="button"></button>
+                      </div>
+                      </div>
+  
+                    </div>
+              </div>
+              <div class="alert alert-danger" *ngIf=" !datefield.valid && isSubmitted">
+                  This field is required
+                </div>
+              
+            </div>
+          <div class="col-sm-12 text-center">
+            <button type="submit" class="btn btn-primary text-center"  >Create Topic</button>
+          </div>
+  
+        </form>
+      </div>
+    </div>
+  
+  </div> 

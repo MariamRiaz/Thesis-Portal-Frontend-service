@@ -1,13 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">OVGU Thesis portal</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" [routerLink]="['/thesis-topics']">Thesis topics</a>
-      <a class="nav-item nav-link" href="#">List item 3</a>
-    </div>
+<div class="container-fluid">
+  <div class="header">
+      <img class="imgStyle" src="assets/logo.jpg"/>
+      <h2 class="head">Thesis Portal<a class="login" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="/"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></h2>
+      
   </div>
-</nav>
+    
+</div>
