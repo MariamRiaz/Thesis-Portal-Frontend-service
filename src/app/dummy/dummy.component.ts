@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient  } from '@angular/common/http';
+// import { HttpClient  } from '@angular/common/http';
 import { FormGroup, NgForm } from '@angular/forms';
 import {MatDialog} from '@angular/material';
+import { TopicsService } from '../topics.service';
 
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import {ModalComponent} from '../modal/modal.component';
@@ -13,10 +14,11 @@ import {ModalComponent} from '../modal/modal.component';
 })
 export class DummyComponent implements OnInit {
 
-  constructor(private http: HttpClient , private calendar: NgbCalendar,public dialog: MatDialog) { }
+  constructor(private calendar: NgbCalendar,public dialog: MatDialog, private topicsService: TopicsService) { }
   result = null;
   topic = {
     title: '',
+    researchGroup: '',
     desc: '',
     supvsr: '',
     req: '',
@@ -32,6 +34,8 @@ export class DummyComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
   openDialog(): void {
     const dialogRef = this.dialog.open(ModalComponent, {
       width: '50%',
@@ -45,7 +49,10 @@ export class DummyComponent implements OnInit {
   }
 
   onSubmit(data: NgForm) {
+
+
     if (data.form.valid) {
+
       var date = data.value.date.day + "-" + data.value.date.month + "-" + data.value.date.year;
       data.value.date = date;
       var request={
@@ -53,16 +60,34 @@ export class DummyComponent implements OnInit {
         "supervisor":data.value.supvsr,
         "description":data.value.desc,
         "requirements":data.value.req,
-        "keywords":data.value.keywords
+        "keywords":data.value.keywords,
+        "startDate":data.value.date
       }
-      this.http.post("http://localhost:8080/saveTopic",JSON.stringify(request)).subscribe((data) => {
-        console.log(data)
+
+
+
+
+
+      // sends data to the service which then adds it to db.json
+      this.topicsService.setTopics(request);
+      this.openDialog();
+
       
-        this.openDialog();
+
+
+
+
+
+      // this.http.post("http://localhost:8080/saveTopic",JSON.stringify(request)).subscribe((data) => {
+      //   console.log(data)
+      
+      //   this.openDialog();
        
        
-        this.result = data;
-      });
+      //   this.result = data;
+      // });
+
+
     }
     else {
       this.isSubmitted = true;
