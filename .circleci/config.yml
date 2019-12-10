@@ -1,0 +1,58 @@
+version: 2
+jobs:
+  # The build job
+  build:
+    working_directory: ~/tp-frontend-service
+    docker:
+      - image: circleci/node:10-browsers
+    steps:
+      # Checkout the code from the branch into the working_directory
+      - checkout
+      # Restore local dependencies from cache
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            - v1-dependencies-
+      # Install project dependencies
+      - run:
+          name: Install local dependencies
+          command: npm install
+      # Cache local dependencies if they don't exist
+      - save_cache:
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+      # Lint the source code
+      - run:
+          name: Linting
+          command: npm run lint
+      # Test the source code
+      - run:
+          name: Testing
+          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      # End to End test
+      - run:
+          name: End to End Test
+          command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+
+  build_push_docker:
+    steps:
+      - checkout
+      - run:
+          name: Publish docker image to Hub
+          command: |
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER $DOCKER_REGISTRY --password-stdin
+            docker build . --tag $DOCKER_REGISTRY/tp-frontend-service
+            docker push $DOCKER_REGISTRY/tp-frontend-service
+
+workflows:
+  version: 2
+  deployment_pipeline:
+    jobs:
+      - build
+      - build_push_docker:
+          filters:
+            branches:
+              only: master
+          requires:
+            - build
