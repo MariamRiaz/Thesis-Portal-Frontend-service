@@ -18,11 +18,9 @@ export class TopicsService {
   }
 
   //this is a post service which isnt used yet in the code
-  setTopics (name,department,details) {
+  setTopics (topic) {
     return this.http.post(environment.dbUrl, {
-    name,
-    department,
-    details
+    topic
   })
   .subscribe(console.log);
 
