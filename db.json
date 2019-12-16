@@ -1,8 +1,40 @@
 {
-    "topics": [
-        { "name": "topic1", "department": "FIN", "details": "Details of the topic go here" },
-        { "name": "topic2", "department": "FIN", "details": "Details of the topic go here" },
-        { "name": "topic3", "department": "FIN", "details": "Details of the topic go here" },
-        { "name": "topic4", "department": "FIN", "details": "Details of the topic go here" }
-    ]
-  }
+  "topics": [
+    {
+      "topic": {
+        "title": "bla",
+        "supervisor": "bla",
+        "description": "bla bla",
+        "startDate": "15-12-2019"
+      },
+      "id": 1
+    },
+    {
+      "topic": {
+        "title": "a",
+        "supervisor": "a",
+        "description": "a",
+        "startDate": "11-12-2019"
+      },
+      "id": 2
+    },
+    {
+      "topic": {
+        "title": "bla",
+        "supervisor": "bla",
+        "description": "b",
+        "startDate": "undefined-undefined-undefined"
+      },
+      "id": 3
+    },
+    {
+      "topic": {
+        "title": "a",
+        "supervisor": "c",
+        "description": "d",
+        "startDate": "18-12-2019"
+      },
+      "id": 4
+    }
+  ]
+}

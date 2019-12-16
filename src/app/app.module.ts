@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './modal/modal.component';
+import { DisplayTopicsComponent } from './display-topics/display-topics.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { ModalComponent } from './modal/modal.component';
     FooterComponent,
     MenuComponent,
     DummyComponent,
-    ModalComponent
+    ModalComponent,
+    DisplayTopicsComponent,
+    HomeComponent
   ],
   entryComponents: [ModalComponent],
   imports: [

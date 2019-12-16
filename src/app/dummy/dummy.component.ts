@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // import { HttpClient  } from '@angular/common/http';
 import { FormGroup, NgForm } from '@angular/forms';
 import {MatDialog} from '@angular/material';
-import { TopicsService } from '../topics.service';
+import { TopicsService } from '../topics.service'; // for the service
 
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import {ModalComponent} from '../modal/modal.component';
@@ -13,7 +13,7 @@ import {ModalComponent} from '../modal/modal.component';
   styleUrls: ['./dummy.component.css']
 })
 export class DummyComponent implements OnInit {
-
+// for the service declare private variable 
   constructor(private calendar: NgbCalendar,public dialog: MatDialog, private topicsService: TopicsService) { }
   result = null;
   topic = {
