@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DummyComponent } from './dummy.component';
+import { DummyComponent } from './thesis-form.component';
 
 describe('DummyComponent', () => {
   let component: DummyComponent;

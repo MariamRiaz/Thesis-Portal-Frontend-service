@@ -117,9 +117,26 @@
                 </div>
             </div>
           <div class="col-sm-12 text-center">
-            <button type="submit" class="btn btn-primary text-center"  >Create Topic</button>
+            <button type="submit" class="btn btn-primary text-center">Create Topic</button>
           </div>
+
+         
         </form>
+        
       </div>
+      
     </div>
+    <app-modal id="topic-modal">
+      <h1 class="text-center" mat-dialog-title>Success</h1>
+      <div mat-dialog-content>
+        <p class="text-center">The topic is sucessfully created</p>
+      </div>
+      <div class="right-align" mat-dialog-actions >
+        <button mat-button (click)="closeModal('topic-modal');" cdkFocusInitial>Ok</button>
+      </div>
+    </app-modal>
+    
   </div> 
+  
+ 
+  

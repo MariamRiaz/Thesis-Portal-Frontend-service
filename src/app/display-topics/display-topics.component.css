@@ -33,4 +33,9 @@
     font-size: 30px;
   } */
 
-  .card {display:inline-block;}
+  .card {width: 75%;}
+  .card {
+    margin: 0 auto; 
+    float: none; 
+    margin-bottom: 10px;
+}

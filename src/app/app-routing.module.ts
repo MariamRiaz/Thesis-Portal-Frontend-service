@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DummyComponent } from './dummy/dummy.component';
+import { DummyComponent } from './thesis-form/thesis-form.component';
 import { DisplayTopicsComponent } from './display-topics/display-topics.component'
 import { HomeComponent } from './home/home.component'
 

@@ -3,18 +3,25 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
 import {MatDialog} from '@angular/material';
 import { TopicsService } from '../topics.service'; // for the service
+import { ModalService } from  '../modal.service';
 
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import {ModalComponent} from '../modal/modal.component';
 
 @Component({
-  selector: 'app-dummy',
-  templateUrl: './dummy.component.html',
-  styleUrls: ['./dummy.component.css']
+  selector: 'app-thesis-form',
+  templateUrl: './thesis-form.component.html',
+  styleUrls: ['./thesis-form.component.css']
 })
 export class DummyComponent implements OnInit {
+
+  bodyText : any;
+
 // for the service declare private variable 
-  constructor(private calendar: NgbCalendar,public dialog: MatDialog, private topicsService: TopicsService) { }
+  constructor(private calendar: NgbCalendar,
+    public dialog: MatDialog, 
+    private topicsService: TopicsService,
+    private modalService: ModalService) { }
   result = null;
   topic = {
     title: '',
@@ -33,6 +40,7 @@ export class DummyComponent implements OnInit {
   isSubmitted = false;
 
   ngOnInit() {
+    this.bodyText = 'This text can be updated in modal 1';
   }
 
 
@@ -70,14 +78,10 @@ export class DummyComponent implements OnInit {
 
       // sends data to the service which then adds it to db.json
       this.topicsService.setTopics(request);
-      this.openDialog();
-
+      // this.openDialog();
+      this.openModal('topic-modal');
+      data.form.reset();
       
-
-
-
-
-
       // this.http.post("http://localhost:8080/saveTopic",JSON.stringify(request)).subscribe((data) => {
       //   console.log(data)
       
@@ -94,5 +98,13 @@ export class DummyComponent implements OnInit {
     }
 
 
+  }
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 }

@@ -14,12 +14,24 @@
   <td>{{topic.topic.startDate}}</td>
   </tr>
 </table> -->
- 
+ <!-- 
 <div class="card" style="width: 18rem;" *ngFor="let topic of topics">
   <div class="card-body">
     <h5 class="card-title">{{topic.topic.title}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{topic.topic.supervisor}}</h6>
     <h6 class="card-subtitle mb-2 text-muted">{{topic.topic.startDate}}</h6>
     <p class="card-text">{{topic.topic.description}}</p>
+  </div>
+</div> -->
+
+<div class="card" *ngFor="let topic of topics">
+  <div class="card-header">
+    {{topic.topic.title}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{topic.topic.startDate}} </h5>
+    <h5 class="card-title mb-2 text-muted">{{topic.topic.supervisor}} </h5>
+    <p class="card-text">{{topic.topic.description}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
