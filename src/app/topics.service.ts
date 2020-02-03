@@ -17,6 +17,10 @@ export class TopicsService {
     return this.http.get(environment.dbUrl);
   }
 
+  searchTopics(q){
+    return this.http.get(environment.dbUrl+"?quer="+q); //post
+  }
+
   //this is a post service which isnt used yet in the code
   setTopics (topic) {
     return this.http.post(environment.dbUrl, {

@@ -1,37 +1,20 @@
-<!--   
-<br>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Sup</th>
-    <th>Details</th>
-    <th>Start date</th>
-  </tr>
-  <tr *ngFor="let topic of topics">
-  <td>{{topic.topic.title}}</td>
-  <td>{{topic.topic.supervisor}}</td>
-  <td>{{topic.topic.description}}</td>
-  <td>{{topic.topic.startDate}}</td>
-  </tr>
-</table> -->
- <!-- 
-<div class="card" style="width: 18rem;" *ngFor="let topic of topics">
-  <div class="card-body">
-    <h5 class="card-title">{{topic.topic.title}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{topic.topic.supervisor}}</h6>
-    <h6 class="card-subtitle mb-2 text-muted">{{topic.topic.startDate}}</h6>
-    <p class="card-text">{{topic.topic.description}}</p>
-  </div>
-</div> -->
-
-<div class="card" *ngFor="let topic of topics">
+<div class="card" *ngFor="let topic of topics, let i=index;">
   <div class="card-header">
-    {{topic.topic.title}}
+    {{topic.topic.startDate}}
   </div>
   <div class="card-body">
-    <h5 class="card-title">{{topic.topic.startDate}} </h5>
+    <h5 class="card-title">{{topic.topic.title}} </h5>
     <h5 class="card-title mb-2 text-muted">{{topic.topic.supervisor}} </h5>
     <p class="card-text">{{topic.topic.description}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample" 
+      (click)="togglePanel[i] = !togglePanel[i]">
+      Show More
+    </button>
+    <div class="collapse" id="collapseExample" [hidden]="!togglePanel[i]">
+      <div>
+        <br>{{topic.topic.MustHave}} <br/>
+        <br>{{topic.topic.NiceToHave}}<br/>
+        <br>{{topic.topic.contact}}<br/>
+    </div>
   </div>
 </div>

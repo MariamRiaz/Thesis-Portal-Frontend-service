@@ -8,6 +8,8 @@ import { TopicsService } from '../topics.service';
 })
 export class DisplayTopicsComponent implements OnInit {
   topics: any;
+  showContent : boolean = false;
+  togglePanel: any =[];
   constructor(private topicService: TopicsService) {
    }
 

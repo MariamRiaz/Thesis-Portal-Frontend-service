@@ -28,8 +28,9 @@ export class DummyComponent implements OnInit {
     researchGroup: '',
     desc: '',
     supvsr: '',
-    req: '',
-    keywords: '',
+    musthave: '',
+    nth: '',
+    contact: '',
     date: ''
   }
   model: NgbDateStruct;
@@ -60,38 +61,22 @@ export class DummyComponent implements OnInit {
 
 
     if (data.form.valid) {
-
       var date = data.value.date.day + "-" + data.value.date.month + "-" + data.value.date.year;
       data.value.date = date;
       var request={
         "title":data.value.title,
         "supervisor":data.value.supvsr,
         "description":data.value.desc,
-        "requirements":data.value.req,
-        "keywords":data.value.keywords,
+        "MustHave":data.value.musthave,
+        "NiceToHave":data.value.nth,
+        "contact":data.value.contact,
         "startDate":data.value.date
       }
-
-
-
-
-
       // sends data to the service which then adds it to db.json
       this.topicsService.setTopics(request);
       // this.openDialog();
       this.openModal('topic-modal');
       data.form.reset();
-      
-      // this.http.post("http://localhost:8080/saveTopic",JSON.stringify(request)).subscribe((data) => {
-      //   console.log(data)
-      
-      //   this.openDialog();
-       
-       
-      //   this.result = data;
-      // });
-
-
     }
     else {
       this.isSubmitted = true;
