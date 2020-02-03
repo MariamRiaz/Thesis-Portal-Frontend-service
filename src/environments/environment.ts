@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  dbUrl: "http://localhost:3000/topics"
+  dbUrl: "http://localhost:8080/core/topics/all"
 };
 
 /*

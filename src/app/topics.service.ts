@@ -15,6 +15,7 @@ export class TopicsService {
 
   getTopics () {
     return this.http.get(environment.dbUrl);
+    
   }
 
   searchTopics(q){
