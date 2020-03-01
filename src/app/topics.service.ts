@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { environment } from '../environments/environment';
  
 import { Observable, of } from 'rxjs';
@@ -22,12 +22,7 @@ export class TopicsService {
     return this.http.get(environment.dbUrl+"?quer="+q); //post
   }
 
-  //this is a post service which isnt used yet in the code
-  setTopics (topic) {
-    return this.http.post(environment.dbUrl, {
-    topic
-  })
-  .subscribe(console.log);
-
+  setTopics (topic:any)  {
+    return this.http.post<any>(environment.dbUrl1, topic).subscribe(console.log);
   }
 }

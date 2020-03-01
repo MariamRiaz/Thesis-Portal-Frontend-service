@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  dbUrl: "http://localhost:8080/core/topics/all"
+  dbUrl: "http://localhost:8080/core/topics/all",
+  dbUrl1: "http://localhost:8080/core/topics/save"
 };
 
 /*

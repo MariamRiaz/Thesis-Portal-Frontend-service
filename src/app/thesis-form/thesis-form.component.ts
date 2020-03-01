@@ -26,12 +26,12 @@ export class DummyComponent implements OnInit {
   topic = {
     title: '',
     researchGroup: '',
-    desc: '',
-    supvsr: '',
-    musthave: '',
-    nth: '',
-    contact: '',
-    date: ''
+    supervisor:'',
+    description: '',
+    mustHave: '',
+    niceHave: '',
+    contactInfo: '',
+    startDate: ''
   }
   model: NgbDateStruct;
   date: { year: number, month: number };
@@ -61,16 +61,17 @@ export class DummyComponent implements OnInit {
 
 
     if (data.form.valid) {
-      var date = data.value.date.day + "-" + data.value.date.month + "-" + data.value.date.year;
-      data.value.date = date;
+      var date = data.value.startDate.day + "-" + data.value.startDate.month + "-" + data.value.startDate.year;
+      data.value.startDate = date;
       var request={
         "title":data.value.title,
-        "supervisor":data.value.supvsr,
-        "description":data.value.desc,
-        "MustHave":data.value.musthave,
-        "NiceToHave":data.value.nth,
-        "contact":data.value.contact,
-        "startDate":data.value.date
+        "supervisor":data.value.supervisor,
+        "researchGroup": data.value.researchGroup,
+        "description":data.value.description,
+        "mustHave":data.value.mustHave,
+        "niceHave":data.value.niceHave,
+        "contactInfo":data.value.contactInfo,
+        "startDate":data.value.startDate
       }
       // sends data to the service which then adds it to db.json
       this.topicsService.setTopics(request);
