@@ -18,6 +18,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './modal/modal.component';
 import { DisplayTopicsComponent } from './display-topics/display-topics.component';
 import { HomeComponent } from './home/home.component';
+import { SearchDisplayComponent } from './search-display/search-display.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { HomeComponent } from './home/home.component';
     DummyComponent,
     ModalComponent,
     DisplayTopicsComponent,
-    HomeComponent
+    HomeComponent,
+    SearchDisplayComponent
   ],
   entryComponents: [ModalComponent],
   imports: [

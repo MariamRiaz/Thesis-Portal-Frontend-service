@@ -16,9 +16,10 @@
           <a class="nav-link" [routerLink]="['/display-topics']"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Available Topics</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-success my-2 my-sm-0" type="button">Search</button>
+      <form class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit(searchForm)" #searchForm="ngForm"> 
+        <input type="text" class="form-control mr-sm-2"  id="searchTerm" name="searchTerm"  aria-describedby="titleHelp" placeholder="search" required [(ngModel)]="searchTerm" #title="ngModel">
+        <button class="btn btn-success my-2 my-sm-0" type="submit" >Search</button>
       </form>
+      
     </div>
   </nav>

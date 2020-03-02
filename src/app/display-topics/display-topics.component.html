@@ -6,18 +6,6 @@
     <h5 class="card-title">{{topic.title}} </h5>
     <h5 class="card-title mb-2 text-muted">{{topic.supervisor}} </h5>
     <p class="card-text">{{topic.description}}</p>
-    <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" 
-    data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample" 
-      (click)=  toggler(i)>
-      Show More
-    </button>
-    <div class="collapse" id="collapseExample" [hidden]="!togglePanel[i]">
-      <div>
-        <br>{{topic.mustHave}} <br/>
-        <br>{{topic.niceHave}}<br/>
-        <br>{{topic.contactInfo}}<br/>
-    </div>
-  </div> -->
   <p>
       <button type="button" class="btn btn-primary" (click)=toggler(i)
               [attr.aria-expanded]="!togglePanel[i]" aria-controls="collapseExample2">
