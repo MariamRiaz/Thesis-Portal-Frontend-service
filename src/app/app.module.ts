@@ -19,6 +19,7 @@ import { ModalComponent } from './modal/modal.component';
 import { DisplayTopicsComponent } from './display-topics/display-topics.component';
 import { HomeComponent } from './home/home.component';
 import { SearchDisplayComponent } from './search-display/search-display.component';
+import { EventEmitterService } from './event-emitter.service';
 
 
 @NgModule({
@@ -52,7 +53,7 @@ import { SearchDisplayComponent } from './search-display/search-display.componen
     NgbModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [ EventEmitterService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
