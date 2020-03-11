@@ -18,8 +18,9 @@ jobs:
       - run:
           name: Install local dependencies
           command:  |
-                npm install -g npm stable    
-                npm install -g n
+                sudo npm cache clean -f
+                sudo npm install -g n
+                sudo n latest
       # Cache local dependencies if they don't exist
       - save_cache:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
