@@ -18,8 +18,8 @@ jobs:
       - run:
           name: Install local dependencies
           command:  |
-                nvm install 12.13.0    
-                npm install
+                npm install -g npm stable    
+                npm install -g n
       # Cache local dependencies if they don't exist
       - save_cache:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
