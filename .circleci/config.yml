@@ -23,7 +23,7 @@ jobs:
             nvm install v12.13.0 && nvm use v12.13.0 && nvm alias default v12.13.0
             node -v
             npm install @angular/cli@8.3.19
-                  
+
       # Cache local dependencies if they don't exist
       - save_cache:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
