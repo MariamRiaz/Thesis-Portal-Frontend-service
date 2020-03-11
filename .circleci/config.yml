@@ -15,7 +15,7 @@ jobs:
             - v1-dependencies-{{ checksum "package-lock.json" }}
             - v1-dependencies-
       # Install project dependencies
-     - run:
+      - run:
           name: Install node@v12.13.0
           command: |
             export NVM_DIR="/opt/circleci/.nvm"
