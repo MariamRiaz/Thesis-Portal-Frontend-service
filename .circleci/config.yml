@@ -1,8 +1,9 @@
 version: 2
+executorType: machine
 jobs:
   # The build job
   build:
-    working_directory: ~/tp-frontend-service
+    working_directory: ~/app
     docker:
       - image: circleci/node:10-browsers
     steps:
@@ -38,6 +39,8 @@ jobs:
   build_push_docker:
     steps:
       - checkout
+      - attach_workspace:
+          at: build/libs
       - run:
           name: Publish docker image to Hub
           command: |
