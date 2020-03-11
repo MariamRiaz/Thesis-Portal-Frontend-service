@@ -41,12 +41,12 @@ jobs:
       #     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
       #      npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       # End to End test
-      - run:
-          name: End to End Test
-          command: |
-           export NVM_DIR="/opt/circleci/.nvm"
-           [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-           npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+      #- run:
+       #   name: End to End Test
+        #  command: |
+         #  export NVM_DIR="/opt/circleci/.nvm"
+          # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+           #npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
 
   build_push_docker:
     steps:
