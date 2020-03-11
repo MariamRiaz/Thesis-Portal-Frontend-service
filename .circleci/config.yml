@@ -15,11 +15,16 @@ jobs:
             - v1-dependencies-{{ checksum "package-lock.json" }}
             - v1-dependencies-
       # Install project dependencies
-      - run:
-          name: Install local dependencies
-          command:  |
-                 npm install -g n
-                 n latest
+     - run:
+          name: Install node@v12.13.0
+          command: |
+            ./load-nvm.sh
+            nvm install v12.13.0
+            nvm alias default v12.13.0
+
+      - run: |
+          ./load-nvm.sh
+          npm version
       # Cache local dependencies if they don't exist
       - save_cache:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
