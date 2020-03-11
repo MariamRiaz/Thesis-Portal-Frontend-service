@@ -18,8 +18,10 @@ jobs:
      - run:
           name: Install node@v12.13.0
           command: |
-            nvm install 12.13.0
-            nvm use 12.13.0
+            export NVM_DIR="/opt/circleci/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+            nvm install v12.13.0 && nvm use v12.13.0 && nvm alias default v12.13.0
+            node -v
         
       # Cache local dependencies if they don't exist
       - save_cache:
