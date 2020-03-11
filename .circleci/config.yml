@@ -1,7 +1,3 @@
-# load-nvm.sh
-export NVM_DIR="/opt/circleci/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
 version: 2
 executorType: machine
 jobs:
@@ -41,8 +37,8 @@ jobs:
       - run:
           name: Testing
           command: |
-          ./load-nvm.sh
-          npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+            ./load-nvm.sh
+            npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       # End to End test
       - run:
           name: End to End Test
