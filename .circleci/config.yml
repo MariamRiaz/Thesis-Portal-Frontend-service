@@ -1,10 +1,11 @@
 version: 2
+executorType: machine
 jobs:
   # The build job
   build:
-    working_directory: ~/tp-frontend-service
+    working_directory: ~/app
     docker:
-      - image: circleci/node:10-browsers
+      - image: circleci/node:13.8-browsers
     steps:
       # Checkout the code from the branch into the working_directory
       - checkout
@@ -15,29 +16,43 @@ jobs:
             - v1-dependencies-
       # Install project dependencies
       - run:
-          name: Install local dependencies
-          command: npm install
+          name: Install node@v12.13.0
+          command: |
+            export NVM_DIR="/opt/circleci/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+            nvm install v12.13.0 && nvm use v12.13.0 && nvm alias default v12.13.0
+            node -v
+            npm install @angular/cli@8.3.19
+
       # Cache local dependencies if they don't exist
       - save_cache:
           key: v1-dependencies-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
       # Lint the source code
-      - run:
-          name: Linting
-          command: npm run lint
+      #- run:
+      #   name: Linting
+      #   command: npm run lint
       # Test the source code
-      - run:
-          name: Testing
-          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+      #- run:
+      #    name: Testing
+      #    command: |
+      #      export NVM_DIR="/opt/circleci/.nvm"
+      #     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+      #      npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       # End to End test
-      - run:
-          name: End to End Test
-          command: npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
+      #- run:
+       #   name: End to End Test
+        #  command: |
+         #  export NVM_DIR="/opt/circleci/.nvm"
+          # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+           #npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js
 
   build_push_docker:
     steps:
       - checkout
+      - attach_workspace:
+          at: build/libs
       - run:
           name: Publish docker image to Hub
           command: |

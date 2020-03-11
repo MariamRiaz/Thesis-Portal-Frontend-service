@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { BodyComponent } from './body/body.component';
-import { ThesisTopicsComponent } from './thesis-topics/thesis-topics.component'
+import { DummyComponent } from './thesis-form/thesis-form.component';
+import { DisplayTopicsComponent } from './display-topics/display-topics.component'
+import { HomeComponent } from './home/home.component'
+import { SearchDisplayComponent } from './search-display/search-display.component';
 
 
 const routes: Routes = [ 
-  { path: '', component: BodyComponent },
-  { path: 'home', component: BodyComponent },
-  { path: 'thesis-topics', component: ThesisTopicsComponent },
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'create-topic', component: DummyComponent },
+  { path: 'display-topics', component: DisplayTopicsComponent },
+  { path: 'search-display', component: SearchDisplayComponent },
   { path: '**', redirectTo: '' }
 ];
 

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { environment } from '../environments/environment';
- 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -10,21 +9,33 @@ import { catchError, map, tap } from 'rxjs/operators';
 })
 export class TopicsService {
 
-  constructor(private http: HttpClient){ }
+  searchResults: any = [];
+
+  constructor(private http: HttpClient){
+    // this.searchTerm = ""
+   }
 
 
   getTopics () {
-    return this.http.get(environment.dbUrl);
+    return this.http.get(environment.dbUrl+environment.getContext);
+    
   }
 
-  //this is a post service which isnt used yet in the code
-  setTopics (name,department,details) {
-    return this.http.post(environment.dbUrl, {
-    name,
-    department,
-    details
-  })
-  .subscribe(console.log);
+  searchTopics(term: string){
+    console.log("searching...")
+    return this.http.get(environment.searchUrl+term);
+  }
 
+  setTopics (topic:any)  {
+    return this.http.post<any>(environment.dbUrl+environment.postContext, topic).subscribe(console.log);
+  }
+
+  setSearchTerm(term: string){
+    // this.searchTerm = term
+    console.log("Search term copied")
+    this.searchTopics(term).subscribe((x) =>{
+      console.log(x)
+      this.searchResults = x
+    });
   }
 }

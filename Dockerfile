@@ -1,5 +1,5 @@
 # base image
-FROM node:12.12.0
+FROM node:12.13.0
 
 # install chrome for protractor tests
 # RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
@@ -13,12 +13,17 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 # install and cache app dependencies
-COPY package.json /app/package.json
+COPY package.json .
 RUN npm install
-RUN npm install -g @angular/cli
+# RUN npm install -g @angular/cli@
 
 # add app
-COPY . /app
+COPY . .
+
+EXPOSE 4200 49153
 
 # start app
-CMD ng serve --host 0.0.0.0 --open
+
+# CMD ng serve --host 0.0.0.0 --open
+
+CMD npm run start

@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  dbUrl: "http://localhost:3000/topics"
+  dbUrl: "http://localhost:8080/core/topics",
+  searchUrl: "http://localhost:8082/search/topics/query/",
+  getContext: "/all",
+  postContext: "/save"
 };
 
 /*

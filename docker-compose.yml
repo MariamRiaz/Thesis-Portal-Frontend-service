@@ -1,13 +1,10 @@
-version: '2.1'
-
+version: "3.7"
 services:
-  angular-service:
+  dashboard:
     build: .
-    restart: always
-    network_mode: "host"
-    image: demo-angular-service
-    hostname: localhost
     ports:
-      - 4201:4200
-    healthcheck:
-      test: "exit 0"
+      - "4200:4200"
+      - "49153:49153"
+    volumes:
+      - "/app/node_modules"
+      - ".:/app"

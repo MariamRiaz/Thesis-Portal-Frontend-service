@@ -1,0 +1,17 @@
+.form-group{
+    width:100%;
+  }
+  label{
+    display: inline;
+  }
+  .border{
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+  .head{
+    padding-bottom: 2%;
+  }
+  
+  .has-error{
+    border:1px solid rgba(117, 2, 2, 0.89);
+  }

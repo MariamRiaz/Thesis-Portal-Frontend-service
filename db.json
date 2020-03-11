@@ -1,8 +1,28 @@
 {
-    "topics": [
-        { "name": "topic1", "department": "FIN", "details": "Details of the topic go here" },
-        { "name": "topic2", "department": "FIN", "details": "Details of the topic go here" },
-        { "name": "topic3", "department": "FIN", "details": "Details of the topic go here" },
-        { "name": "topic4", "department": "FIN", "details": "Details of the topic go here" }
-    ]
-  }
+  "topics": [
+    {
+      "topic": {
+        "title": "numsem",
+        "supervisor": "Dr. Sebastian Schäfer",
+        "description": "sfergrgrgwg",
+        "MustHave": "Image Processing Knowledge, Machine Learning, SQL, Python",
+        "NiceToHave": "DldjUHFUZQ§GRUZGQW",
+        "contact": "Contact@contact",
+        "startDate": "21-2-2020"
+      },
+      "id": 3
+    },
+    {
+      "topic": {
+        "title": "ABCD",
+        "supervisor": "ABCD",
+        "description": "ABCD",
+        "MustHave": "ABCD",
+        "NiceToHave": "ABCD",
+        "contact": "ABCD",
+        "startDate": "19-2-2020"
+      },
+      "id": 4
+    }
+  ]
+}
