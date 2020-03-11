@@ -34,11 +34,11 @@ jobs:
       #   name: Linting
       #   command: npm run lint
       # Test the source code
-      - run:
-          name: Testing
-          command: |
-            export NVM_DIR="/opt/circleci/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+      #- run:
+      #    name: Testing
+      #    command: |
+      #      export NVM_DIR="/opt/circleci/.nvm"
+      #     [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
             npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       # End to End test
       - run:
