@@ -20,6 +20,7 @@ import { DisplayTopicsComponent } from './display-topics/display-topics.componen
 import { HomeComponent } from './home/home.component';
 import { SearchDisplayComponent } from './search-display/search-display.component';
 import { EventEmitterService } from './event-emitter.service';
+import { UnderConstructionComponent } from './under-construction/under-construction.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { EventEmitterService } from './event-emitter.service';
     ModalComponent,
     DisplayTopicsComponent,
     HomeComponent,
-    SearchDisplayComponent
+    SearchDisplayComponent,
+    UnderConstructionComponent
   ],
   entryComponents: [ModalComponent],
   imports: [

@@ -4,6 +4,7 @@ import { DummyComponent } from './thesis-form/thesis-form.component';
 import { DisplayTopicsComponent } from './display-topics/display-topics.component'
 import { HomeComponent } from './home/home.component'
 import { SearchDisplayComponent } from './search-display/search-display.component';
+import { UnderConstructionComponent} from './under-construction/under-construction.component';
 
 
 const routes: Routes = [ 
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'create-topic', component: DummyComponent },
   { path: 'display-topics', component: DisplayTopicsComponent },
   { path: 'search-display', component: SearchDisplayComponent },
+  { path: 'uc', component: UnderConstructionComponent },
   { path: '**', redirectTo: '' }
 ];
 

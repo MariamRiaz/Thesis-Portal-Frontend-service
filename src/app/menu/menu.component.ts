@@ -3,8 +3,7 @@ import { FormGroup, NgForm } from '@angular/forms';
 import { TopicsService } from '../topics.service';
 import { SearchDisplayComponent } from '../search-display/search-display.component'
 import { EventEmitterService } from '../event-emitter.service';
-
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -15,7 +14,7 @@ export class MenuComponent implements OnInit {
 
   searchTerm: any;
 
-  constructor(private topicService: TopicsService, private eventEmitterService: EventEmitterService) { }
+  constructor(private topicService: TopicsService, private eventEmitterService: EventEmitterService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -29,6 +28,11 @@ export class MenuComponent implements OnInit {
       // console.log(x);
       // });
       this.eventEmitterService.onFirstComponentButtonClick(data.value.searchTerm);
+      this.router.navigate(['/', 'search-display']).then(nav => {
+        console.log(nav); // true if navigation is successful
+      }, err => {
+        console.log(err) // when there's an error
+      });
     }
   } 
 }

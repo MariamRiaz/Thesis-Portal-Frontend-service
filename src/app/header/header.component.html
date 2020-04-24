@@ -8,9 +8,21 @@
   </div>
  -->
 
-<nav class="navbar navbar-custom">
+<!-- <nav class="navbar navbar-custom">
     <a class="navbar-brand" href="#">
       <img src="assets/logo.jpg" width="150" height="50" class="d-inline-block align-top" alt="">
       Thesis Portal
     </a>
-</nav>
+</nav> -->
+
+<div class="header">
+    <div class="header-image">
+        <img src="assets/logo.jpg" class="d-inline-block align-top logo-image" alt="OVGU fin" [routerLink]="['/home']">
+    </div>
+    <!-- <span class="header-title" href="#">
+          <h2>Thesis Portal</h2>
+      </span> -->
+    <div class="logout-icon" [routerLink]="['/uc']">
+        <img src="assets/login-icon.svg" width="50" height="50" class="d-inline-block align-top" alt="">
+    </div>
+</div>
