@@ -5,12 +5,26 @@
 
 .header-image {
     flex-grow: 1;
+    outline: none;
 }
 
 .header-title {
     flex-grow: 35;
 }
 
+.logout-icon {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    outline: none;
+}
+
 .navbar-custom {
     background-color: #0068b4;
+}
+
+.logo-image {
+    height: 65px;
+    cursor: pointer;
+    outline: none;
 }

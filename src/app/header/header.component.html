@@ -16,13 +16,13 @@
 </nav> -->
 
 <div class="header">
-    <a class="header-image" href="#">
-        <img src="assets/logo.jpg" width="150" height="50" class="d-inline-block align-top" alt="">
-    </a>
-    <span class="header-title" href="#">
+    <div class="header-image">
+        <img src="assets/logo.jpg" class="d-inline-block align-top logo-image" alt="OVGU fin" [routerLink]="['/home']">
+    </div>
+    <!-- <span class="header-title" href="#">
           <h2>Thesis Portal</h2>
-      </span>
-    <a class="header-image" href="#">
+      </span> -->
+    <div class="logout-icon" [routerLink]="['/uc']">
         <img src="assets/login-icon.svg" width="50" height="50" class="d-inline-block align-top" alt="">
-    </a>
+    </div>
 </div>

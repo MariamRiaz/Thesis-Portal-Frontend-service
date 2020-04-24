@@ -1,1 +1,22 @@
-<p>home works!</p>
+<!-- <app-menu></app-menu> -->
+
+<!-- Search form -->
+<div class="aligner">
+    <div class="home-container">
+        <div class="title">
+            Thesis Portal
+        </div>
+        <form class="search" (ngSubmit)="onSubmit(searchForm)" #searchForm="ngForm">
+            <div class="search-bar-and-icon">
+                <img class="search-icon" src="assets/search-icon.png">
+                <input id="searchTerm" name="searchTerm" class="search-bar" type="text" placeholder="Search" required [(ngModel)]="searchTerm" #title="ngModel">
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-outline-primary search-button" type="submit">Topic search</button>
+            </div>
+        </form>
+        <div class="additional-options">
+            <button type="button" class="all-topics-button" [routerLink]="['/display-topics']">Display all topics</button>
+        </div>
+    </div>
+</div>
