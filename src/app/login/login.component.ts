@@ -18,12 +18,12 @@ export class LoginComponent implements OnInit {
   login(data: NgForm){
     if (data.form.valid) {
       console.log("authenticating...")
-      // console.log(data.value.username)
-      // console.log(data.value.password)
 
       this.auth.login(data.value.username, data.value.password)
+
+      this.auth.setLoginIcon("loggedIn")
       
-      this.router.navigate(['/', 'create-topic']).then(nav => {
+      this.router.navigate(['/', 'supervisor-dashboard']).then(nav => {
         console.log(nav); // true if navigation is successful
       }, err => {
         console.log(err) // when there's an error

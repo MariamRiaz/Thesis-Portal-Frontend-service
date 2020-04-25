@@ -1,22 +1,25 @@
 <app-menu></app-menu>
-<br>
-<div class="card" *ngFor="let topic of topics, let i=index;">
-    <div class="card-header">
-        {{topic.startDate}}
-    </div>
-    <div class="card-body">
-        <h5 class="card-title">{{topic.title}} </h5>
-        <h5 class="card-title mb-2 text-muted">{{topic.supervisor}} </h5>
-        <p class="card-text">{{topic.description}}</p>
-        <p>
-            <button type="button" class="btn btn-primary" (click)=toggler(i) [attr.aria-expanded]="!togglePanel[i]" aria-controls="collapseExample2">
-      <div *ngIf="togglePanel[i]">Show less</div>
-      <div *ngIf="!togglePanel[i]">Show more</div>
-      </button>
-        </p>
-        <div id="collapseExample2" [ngbCollapse]="!togglePanel[i]">
-            <br>{{topic.mustHave}} <br/>
-            <br>{{topic.niceHave}}<br/>
-            <br>{{topic.contactInfo}}<br/>
+<div class="topics-container">
+    <div class="card" *ngFor="let topic of topics, let i=index;">
+        <div class="card-header">
+            {{topic.startDate}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{topic.title}} </h5>
+            <h5 class="card-title mb-2 text-muted">{{topic.supervisor}} </h5>
+            <p class="card-text">{{topic.description}}</p>
+            <p>
+                <button type="button" class="btn btn-primary" (click)=toggler(i) [attr.aria-expanded]="!togglePanel[i]"
+                    aria-controls="collapseExample2">
+                    <div *ngIf="togglePanel[i]">Show less</div>
+                    <div *ngIf="!togglePanel[i]">Show more</div>
+                </button>
+            </p>
+            <div id="collapseExample2" [ngbCollapse]="!togglePanel[i]">
+                <br>{{topic.mustHave}} <br />
+                <br>{{topic.niceHave}}<br />
+                <br>{{topic.contactInfo}}<br />
+            </div>
         </div>
     </div>
+    

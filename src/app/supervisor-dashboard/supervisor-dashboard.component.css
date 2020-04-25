@@ -1,35 +1,19 @@
-  .container{
-  margin-bottom: 40px;
-  }
+.search {
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+}
 
-  .form-group{
-    width:100%;
-  }
+.title {
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+}
 
-  label{
-    display: inline;
-  }
-
-  .border{
-    margin-top: 1%;
-    margin-bottom: 1%;
-    padding: 10px;
-  }
-  
-  .head{
-    padding-bottom: 2%;
-  }
-  
-  .has-error{
-    border:1px solid rgba(117, 2, 2, 0.89);
-  }
-
-  .options {
+.options {
     margin-top: 20px;
     display: flex;
     justify-content: space-around;
-    width: 100%;
-    justify-content: center;
 }
 
 .options > button {
@@ -47,4 +31,17 @@
     -moz-box-shadow: 0 4px 6px -6px #0068b4;
     box-shadow: 0 11px 14px -11px #0068b4;
     transition: box-shadow 0.7s, border 0.7s;
+}
+
+.aligner {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media screen and (max-width:800px) {
+    .search {
+        width: 100%;
+    }
 }

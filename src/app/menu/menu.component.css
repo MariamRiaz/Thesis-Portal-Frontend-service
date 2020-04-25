@@ -12,10 +12,21 @@ a.nav-link {
     color: black;
 }
 
-h2 {
+h2.app-name {
     color: black;
     padding-right: 10px;
     border-right: 2px solid #0068b4;
+    cursor: pointer;
+    outline:none;
+}
+
+h2.app-name:hover{
+    text-shadow: 0px 0px 20px #000000;
+    transition: text-shadow 1s;
+}
+
+.navbar-brand{
+    outline:none;
 }
 
 .search {
@@ -24,9 +35,12 @@ h2 {
     flex-wrap: wrap;
 }
 
-@media screen and (max-width:900px) {
+@media screen and (max-width:760px) {
     .search {
         width: 40%;
+    }
+    h2.app-name{
+        border: 0px;
     }
 }
 

@@ -22,6 +22,7 @@ import { SearchDisplayComponent } from './search-display/search-display.componen
 import { EventEmitterService } from './event-emitter.service';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
 import { LoginComponent } from './login/login.component';
+import { SupervisorDashboardComponent } from './supervisor-dashboard/supervisor-dashboard.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     SearchDisplayComponent,
     UnderConstructionComponent,
-    LoginComponent
+    LoginComponent,
+    SupervisorDashboardComponent
   ],
   entryComponents: [ModalComponent],
   imports: [
