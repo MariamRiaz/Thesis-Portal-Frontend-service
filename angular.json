@@ -61,9 +61,12 @@
           }
         },
         "serve": {
+          "sslKey": "auth/privatekey.key",
+          "sslCert": "auth/certificate.crt",
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "thesis-portal-app:build"
+            "browserTarget": "thesis-portal-app:build",
+            "ssl": true
           },
           "configurations": {
             "production": {
@@ -120,6 +123,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "thesis-portal-app"
 }
