@@ -5,6 +5,7 @@ import { DisplayTopicsComponent } from './display-topics/display-topics.componen
 import { HomeComponent } from './home/home.component'
 import { SearchDisplayComponent } from './search-display/search-display.component';
 import { UnderConstructionComponent} from './under-construction/under-construction.component';
+import {LoginComponent} from './login/login.component';
 
 
 const routes: Routes = [ 
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'display-topics', component: DisplayTopicsComponent },
   { path: 'search-display', component: SearchDisplayComponent },
   { path: 'uc', component: UnderConstructionComponent },
+  { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '' }
 ];
 

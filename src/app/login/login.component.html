@@ -1,0 +1,25 @@
+<div class="aligner">
+    <div class="home-container">
+        <div class="title">
+            Sign in
+        </div>
+        <form (ngSubmit)="login(loginForm)" #loginForm="ngForm">
+            <div class="username-password">
+                <div class="input-icon-container">
+                    <img class="input-field-icon" src="assets/username-icon.png">
+                    <input id="username" name="username" class="input-bar" type="text" placeholder="Username" required
+                        [(ngModel)]="username" #title="ngModel">
+                </div>
+                <br>
+                <div class="input-icon-container">
+                    <img class="input-field-icon" src="assets/password-icon.png">
+                    <input id="password" name="password" class="input-bar" type="password" placeholder="password"
+                        required [(ngModel)]="password" #title="ngModel">
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-outline-primary login-button" type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</div>
