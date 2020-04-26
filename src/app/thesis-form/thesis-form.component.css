@@ -1,50 +1,60 @@
-  .container{
-  margin-bottom: 40px;
-  }
-
-  .form-group{
-    width:100%;
-  }
-
-  label{
-    display: inline;
-  }
-
-  .border{
-    margin-top: 1%;
-    margin-bottom: 1%;
-    padding: 10px;
+  .container {
+      margin-bottom: 40px;
   }
   
-  .head{
-    padding-bottom: 2%;
+  .form-group {
+      width: 100%;
   }
   
-  .has-error{
-    border:1px solid rgba(117, 2, 2, 0.89);
+  label {
+      display: inline;
   }
-
+  
+  .border {
+      margin-top: 1%;
+      margin-bottom: 1%;
+      padding: 10px;
+  }
+  
+  .head {
+      padding-bottom: 2%;
+  }
+  
+  .has-error {
+      border: 1px solid rgba(117, 2, 2, 0.89);
+  }
+  
   .options {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    justify-content: center;
-}
-
-.options > button {
-    margin-left: 10px;
-    margin-left: 10px;
-    border: white;
-    border-bottom: 2px solid rgb(205, 227, 255);
-    background: transparent;
-    outline: none;
-}
-
-.options > button:hover {
-    border-bottom: 2px solid #0068b4;
-    -webkit-box-shadow: 0 4px 6px -6px #0068b4;
-    -moz-box-shadow: 0 4px 6px -6px #0068b4;
-    box-shadow: 0 11px 14px -11px #0068b4;
-    transition: box-shadow 0.7s, border 0.7s;
-}
+      border-top: 1px solid rgb(159, 171, 212);
+      margin-top: 20px;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      justify-content: center;
+  }
+  
+  .options>button {
+      margin-left: 10px;
+      margin-left: 10px;
+      border: white;
+      border-bottom: 2px solid rgb(205, 227, 255);
+      background: transparent;
+      outline: none;
+  }
+  
+  .options>button:hover {
+      border-bottom: 2px solid #0068b4;
+      -webkit-box-shadow: 0 4px 6px -6px #0068b4;
+      -moz-box-shadow: 0 4px 6px -6px #0068b4;
+      box-shadow: 0 11px 14px -11px #0068b4;
+      transition: box-shadow 0.7s, border 0.7s;
+  }
+  
+  button {
+      border-radius: 30px;
+  }
+  
+  button:hover {
+      transition: background 1s, color 1s;
+  }

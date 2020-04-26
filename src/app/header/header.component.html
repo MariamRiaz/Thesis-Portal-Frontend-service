@@ -18,13 +18,14 @@
 <div class="header">
     <div class="header-image">
         <a href="https://www.inf.ovgu.de/">
-            <img src="assets/logo.jpg" class="d-inline-block align-top logo-image" alt="OVGU fin">
+            <img class="d-inline-block align-top logo-image" alt="OVGU fin">
+            <!-- src="assets/logo.jpg" -->
         </a>
     </div>
     <!-- <span class="header-title" href="#">
           <h2>Thesis Portal</h2>
       </span> -->
-    <div class="logout-icon" [routerLink]="['/login']">
-        <img src="assets/{{loginStateImage}}" width="50" height="50" class="d-inline-block align-top" alt="">
+    <div class="logout-icon" (click)="loginLogout()">
+        <img src="assets/{{loginStateImage}} " width="50 " height="50 " class="d-inline-block align-top " alt=" ">
     </div>
 </div>

@@ -10,10 +10,18 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  username:String;
+  password:String;
+  
   constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
   }
+
+  // changeMess(){
+  //   console.log("changing1")
+  //   this.auth.changeMessage();
+  // }
 
   login(data: NgForm){
     if (data.form.valid) {
