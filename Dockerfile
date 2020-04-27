@@ -1,29 +1,23 @@
 # base image
-FROM node:12.13.0
+# FROM node:12.16.2 AS builder
+FROM node:12.16.2 as node
 
-# install chrome for protractor tests
-# RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-# RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-# RUN apt-get update && apt-get install -yq google-chrome-stable
+WORKDIR /usr/src/app
 
-# set working directory
-WORKDIR /app
+COPY package*.json ./
 
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
-
-# install and cache app dependencies
-COPY package.json .
 RUN npm install
-# RUN npm install -g @angular/cli@
 
-# add app
 COPY . .
 
-EXPOSE 4200 49153
+RUN npm run build:prod
 
-# start app
+# Stage 2
+FROM nginx:1.13.12-alpine
 
-# CMD ng serve --host 0.0.0.0 --open
-
-CMD npm run start
+COPY --from=node /usr/src/app/dist/thesis-portal-app /usr/share/nginx/html
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+# EXPOSE 443
+COPY ./auth/ssl/localhost.crt /etc/ssl
+COPY ./auth/ssl/localhost.key /etc/ssl
