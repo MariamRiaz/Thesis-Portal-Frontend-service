@@ -10,6 +10,9 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  username:String;
+  password:String;
+  
   constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
@@ -17,11 +20,9 @@ export class LoginComponent implements OnInit {
 
   login(data: NgForm){
     if (data.form.valid) {
-      console.log("authenticating...")
 
+      // console.log("authenticating...")
       this.auth.login(data.value.username, data.value.password)
-
-      this.auth.setLoginIcon("loggedIn")
       
       this.router.navigate(['/', 'supervisor-dashboard']).then(nav => {
         console.log(nav); // true if navigation is successful

@@ -9,8 +9,7 @@
             <h5 class="card-title mb-2 text-muted">{{topic.supervisor}} </h5>
             <p class="card-text">{{topic.description}}</p>
             <p>
-                <button type="button" class="btn btn-primary" (click)=toggler(i) [attr.aria-expanded]="!togglePanel[i]"
-                    aria-controls="collapseExample2">
+                <button type="button" class="btn btn-primary" (click)=toggler(i) [attr.aria-expanded]="!togglePanel[i]" aria-controls="collapseExample2">
                     <div *ngIf="togglePanel[i]">Show less</div>
                     <div *ngIf="!togglePanel[i]">Show more</div>
                 </button>
@@ -22,4 +21,3 @@
             </div>
         </div>
     </div>
-    

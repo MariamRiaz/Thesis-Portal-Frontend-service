@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service'
 
 @Component({
@@ -8,13 +9,28 @@ import { AuthService } from '../auth.service'
 })
 export class HeaderComponent implements OnInit {
 
-  loginStateImage:any = this.auth.currentAuthIcon;
-
-  constructor(private auth: AuthService) { 
-    this.loginStateImage = this.auth.currentAuthIcon;
+  loginStateImage:any;
+  loginState:boolean;
+  
+  constructor(private router: Router, private auth: AuthService) { 
   }
 
   ngOnInit() {
+    this.auth.currentAuthIcon.subscribe(message => this.loginStateImage = message)
+    this.auth.currentAuthState.subscribe(message => this.loginState = message)
+  }
+
+  loginLogout(){
+
+    if(this.loginState){
+      this.auth.logout();
+    }
+    
+    this.router.navigate(['/', 'login']).then(nav => {
+      console.log(nav); // true if navigation is successful
+    }, err => {
+      console.log(err) // when there's an error
+    });
   }
   
 }

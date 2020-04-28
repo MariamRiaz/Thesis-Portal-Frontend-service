@@ -1,25 +1,17 @@
 <nav class="navbar navbar-expand-md navbar-light">
-    <a class="navbar-brand"><h2 [routerLink]="['/home']" class="app-name">Thesis Portal</h2></a>
+    <a class="navbar-brand">
+        <h2 [routerLink]="['/home']" class="app-name">Thesis Portal</h2>
+    </a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navb">
         <ul class="navbar-nav mr-auto">
-            <!-- <li class="nav-item">
-                <h2 [routerLink]="['/home']" class="app-name">Thesis Portal</h2>
-            </li> -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/create-topic']"><i class="fa fa-info-circle" aria-hidden="true"></i>Create topic</a>
-            </li> -->
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/display-topics']">Show all topics</a>
             </li>
         </ul>
-        <!-- <form class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit(searchForm)" #searchForm="ngForm">
-            <input type="text" class="form-control mr-sm-2" id="searchTerm" name="searchTerm" aria-describedby="titleHelp" placeholder="search" required [(ngModel)]="searchTerm" #title="ngModel">
-            <button class="btn btn-success my-2 my-sm-0" type="submit" [routerLink]="['/search-display']">Search</button>
-        </form> -->
         <form class="search" (ngSubmit)="onSubmit(searchForm)" #searchForm="ngForm">
             <div class="search-bar-and-icon">
                 <input id="searchTerm" name="searchTerm" class="search-bar" type="text" placeholder="Search" required [(ngModel)]="searchTerm" #title="ngModel">

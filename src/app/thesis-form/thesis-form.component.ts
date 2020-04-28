@@ -82,10 +82,8 @@ export class DummyComponent implements OnInit {
     else {
       this.isSubmitted = true;
     }
-
-
   }
-
+  
   openModal(id: string) {
     this.modalService.open(id);
   }

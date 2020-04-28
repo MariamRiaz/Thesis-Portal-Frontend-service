@@ -27,4 +27,17 @@
     height: 65px;
     cursor: pointer;
     outline: none;
+    content: url("../../assets/ovgu-logo.jpg");
+}
+
+@media screen and (max-width:480px) {
+    .logo-image {
+        content: url("../../assets/ovgu-logo-med.jpg");
+    }
+}
+
+@media screen and (max-width:360px) {
+    .logo-image {
+        content: url("../../assets/ovgu-logo-small.jpg");
+    }
 }

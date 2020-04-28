@@ -1,5 +1,3 @@
-<!-- <app-menu></app-menu> -->
-
 <!-- Search form -->
 <div class="aligner">
     <div class="home-container">
@@ -9,10 +7,10 @@
         <form class="search" (ngSubmit)="onSubmit(searchForm)" #searchForm="ngForm">
             <div class="search-bar-and-icon">
                 <img class="search-icon" src="assets/search-icon.png">
-                <input id="searchTerm" name="searchTerm" class="search-bar" type="text" placeholder="Search" required [(ngModel)]="searchTerm" #title="ngModel">
+                <input id="searchTerm" name="searchTerm" class="search-bar" type="text" placeholder="Enter keywords, name of topics or faculty name" required [(ngModel)]="searchTerm" #title="ngModel">
             </div>
             <div class="action-buttons">
-                <button class="btn btn-outline-primary search-button" type="submit">Topic search</button>
+                <button class="btn btn-outline-primary search-button" type="submit">Search topic</button>
             </div>
         </form>
         <div class="additional-options">

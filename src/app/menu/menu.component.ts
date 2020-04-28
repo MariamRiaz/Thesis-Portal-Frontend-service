@@ -22,12 +22,9 @@ export class MenuComponent implements OnInit {
   onSubmit(data: NgForm) {
     if (data.form.valid) {
       console.log(data.value.searchTerm)
-      // this.topicService.setSearchTerm(data.value.searchTerm)
-      // this.searchDisplay.searchTopics()
-      // this.topicService.searchTopics(data.value.searchTerm).subscribe((x) => {
-      // console.log(x);
-      // });
-      this.eventEmitterService.onFirstComponentButtonClick(data.value.searchTerm);
+
+      this.topicService.searchTopics(data.value.searchTerm)
+      
       this.router.navigate(['/', 'search-display']).then(nav => {
         console.log(nav); // true if navigation is successful
       }, err => {
@@ -35,4 +32,5 @@ export class MenuComponent implements OnInit {
       });
     }
   } 
+  
 }

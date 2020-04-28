@@ -26,9 +26,9 @@ export class DisplayTopicsComponent implements OnInit {
       this.setToggle()
       console.log(this.topics)
     });
-    
   }
 
+  // setting toggle of each topic to false.. ie. every card in closed
   setToggle(){
     for(var i=0; i<this.topics.length; i++){
       this.togglePanel[i] = false;

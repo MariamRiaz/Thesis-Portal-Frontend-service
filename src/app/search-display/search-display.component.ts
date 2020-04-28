@@ -9,53 +9,22 @@ import { EventEmitterService } from '../event-emitter.service';
 })
 export class SearchDisplayComponent implements OnInit {
   topics: any = [];
+  message: any;
   showContent : boolean = false;
   togglePanel: boolean[] ;
 
 
   constructor(private topicService: TopicsService, private eventEmitterService: EventEmitterService) {
     this.togglePanel = []
-    console.log(this.togglePanel)
+    // console.log(this.togglePanel)
    }
 
    ngOnInit() {
-    // this.searchTopics()
     this.setToggle()
     this.togglePanel = []
-
-    if (this.eventEmitterService.subsVar==undefined) {    
-      this.eventEmitterService.subsVar = this.eventEmitterService.    
-      invokeFirstComponentFunction.subscribe((name:string) => {    
-        this.firstFunction(name);    
-      });    
-    }    
+    this.topicService.searchResults.subscribe(message => 
+      this.topics = message)   
   }
-
-  firstFunction(name){
-      console.log("Request arrived");
-      console.log("name : "+name)
-      this.topicService.searchTopics(name).subscribe((x) => {
-        this.topics = x
-        this.setToggle()
-        // console.log(x)
-      });
-      console.log(this.topics)
-  }
-
-
-
-  setTopics(T: any){
-    console.log("setting topic in search display")
-    this.topics = T
-  }
-
-  // searchTopics() {
-  //   console.log("searching")
-  //   this.topicService.searchTopics().subscribe((x) => {
-  //     this.topics = x
-  //     this.setToggle()
-  //   });
-  // }
 
   setToggle(){
     for(var i=0; i<this.topics.length; i++){
@@ -69,7 +38,5 @@ export class SearchDisplayComponent implements OnInit {
     else 
       this.togglePanel[i] = true
   }
-
-  
 
 }
