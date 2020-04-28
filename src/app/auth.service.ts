@@ -17,14 +17,13 @@ export class AuthService {
   currentAuthState = this.loginStateSource.asObservable();
 
   constructor() { 
-    // this.currentAuthIcon = this.loginIcon;
   }
 
   login(username, password){
 
-    console.log("in auth service...");
-    console.log("username : " + username);
-    console.log("password : " + password);
+    // console.log("in auth service...");
+    // console.log("username : " + username);
+    // console.log("password : " + password);
     this.loginImageSource.next(this.logoutIcon);
     this.loginStateSource.next(true);
 
@@ -38,21 +37,5 @@ export class AuthService {
     this.loginStateSource.next(false);
 
     //TODO
-  }
-
-  setLoginIcon(state){
-
-    console.log("setting icon")
-    if(state=="loggedIn"){
-      // this.currentAuthIcon = this.logoutIcon;
-      // this.messageSource.next(this.logoutIcon);
-      console.log("setting icon Logout")
-    }
-    else if(state=="loggedOut"){
-      // this.currentAuthIcon = this.loginIcon;
-      // this.messageSource.next(this.loginIcon);
-      console.log("setting icon login")
-    }
-
   }
 }
