@@ -16,6 +16,6 @@ FROM nginx:1.13.12-alpine
 
 COPY --from=node /usr/src/app/dist/thesis-portal-app /usr/share/nginx/html
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
+EXPOSE 4200
 COPY ./auth/ssl/localhost.crt /etc/ssl
 COPY ./auth/ssl/localhost.key /etc/ssl
