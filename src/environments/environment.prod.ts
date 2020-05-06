@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  dbUrl: "http://localhost:8080/core/topics",
-  searchUrl: "http://localhost:8082/search/topics/query/",
+  dbUrl: "https://admin.thesis.cs.ovgu.de/core/topics",
+  searchUrl: "https://search.thesis.cs.ovgu.de/search/topics/query/",
   getContext: "/all",
   postContext: "/save"
 };
