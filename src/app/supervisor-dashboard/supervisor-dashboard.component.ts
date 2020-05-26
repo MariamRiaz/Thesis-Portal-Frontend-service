@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TopicsService } from '../topics.service';
 
 @Component({
   selector: 'app-supervisor-dashboard',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SupervisorDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private topicService: TopicsService) { }
 
   ngOnInit() {
+    this.getResearchGroup()
+  }
+
+  getResearchGroup() {
+    this.topicService.getAllResearchGroups().subscribe((x) => {
+      
+      console.log(x)
+    });
   }
 
 }

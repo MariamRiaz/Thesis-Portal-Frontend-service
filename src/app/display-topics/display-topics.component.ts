@@ -12,7 +12,7 @@ export class DisplayTopicsComponent implements OnInit {
   togglePanel: boolean[] ;
   constructor(private topicService: TopicsService) {
     this.togglePanel = []
-    console.log(this.togglePanel)
+    // console.log(this.togglePanel)
    }
 
   ngOnInit() {

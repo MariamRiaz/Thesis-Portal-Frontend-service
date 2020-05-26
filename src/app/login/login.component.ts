@@ -23,13 +23,15 @@ export class LoginComponent implements OnInit {
 
       // console.log("authenticating...")
       this.auth.login(data.value.username, data.value.password)
-      
+      /**
       this.router.navigate(['/', 'supervisor-dashboard']).then(nav => {
         console.log(nav); // true if navigation is successful
       }, err => {
         console.log(err) // when there's an error
       });
+    */
     }
+    
   }
 
 }

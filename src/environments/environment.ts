@@ -4,10 +4,15 @@
 
 export const environment = {
   production: false,
-  dbUrl: "http://localhost:8080/core/topics",
-  searchUrl: "http://localhost:8082/search/topics/query/",
-  getContext: "/all",
-  postContext: "/save"
+  dbUrl: "http://localhost:8080/core",
+  searchUrl: "http://localhost:8080/search/topics/query/",
+  getContext: "/recent/all",
+  postContext: "/save",
+  authContext: "/token/login",
+  researchGroupAllContext: "/researchgroup/all",
+  allContext: "/researchgroup/byId?",
+
+  idArgument: "researchGroupId="
 };
 
 /*
