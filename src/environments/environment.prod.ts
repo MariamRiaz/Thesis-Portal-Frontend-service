@@ -3,10 +3,13 @@ export const environment = {
   dbUrl: "https://admin.thesis.cs.ovgu.de/core",
   searchUrl: "https://search.thesis.cs.ovgu.de/search/topics/query/",
   getContext: "/recent/all",
-  postContext: "/save",
+  saveTopicContext: "/topic/save",
   authContext: "/token/login",
-  researchGroupAllContext: "/researchgroup/all",
-  allContext: "/researchgroup/byId?",
+  researchGroupAllContext: "/researchgroup/all", 
+  researchGroupIdContext: "/researchgroup/byId?",
+  researchGroupGetTopicsContext: "/topic/researchgroup/all?",
+  deleteTopicContext: "/topic/delete?",
 
-  idArgument: "researchGroupId="
+  researchGroupIdArgument: "researchGroupId=",
+  idArgument: "id="
 };
