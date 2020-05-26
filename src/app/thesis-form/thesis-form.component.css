@@ -9,6 +9,10 @@
   label {
       display: inline;
   }
+
+  #researchGroupName{
+      padding:8px 16px;
+  }
   
   .border {
       margin-top: 1%;

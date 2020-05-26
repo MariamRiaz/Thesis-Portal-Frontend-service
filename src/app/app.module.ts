@@ -24,6 +24,7 @@ import { UnderConstructionComponent } from './under-construction/under-construct
 import { LoginComponent } from './login/login.component';
 import { SupervisorDashboardComponent } from './supervisor-dashboard/supervisor-dashboard.component';
 import { ToastrModule } from 'ngx-toastr';
+import { SupervisorDisplayTopicsComponent } from './supervisor-display-topics/supervisor-display-topics.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ToastrModule } from 'ngx-toastr';
     SearchDisplayComponent,
     UnderConstructionComponent,
     LoginComponent,
-    SupervisorDashboardComponent
+    SupervisorDashboardComponent,
+    SupervisorDisplayTopicsComponent
   ],
   entryComponents: [ModalComponent],
   imports: [

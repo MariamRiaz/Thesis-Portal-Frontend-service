@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service'
+import { CookieService }from 'ngx-cookie-service';
+
 
 @Component({
   selector: 'app-header',
@@ -12,7 +14,7 @@ export class HeaderComponent implements OnInit {
   loginStateImage:any;
   loginState:boolean;
   
-  constructor(private router: Router, private auth: AuthService) { 
+  constructor(private cookieService: CookieService,private router: Router, private auth: AuthService) { 
   }
 
   ngOnInit() {

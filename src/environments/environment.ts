@@ -7,12 +7,15 @@ export const environment = {
   dbUrl: "http://localhost:8080/core",
   searchUrl: "http://localhost:8080/search/topics/query/",
   getContext: "/recent/all",
-  postContext: "/save",
+  saveTopicContext: "/topic/save",
   authContext: "/token/login",
-  researchGroupAllContext: "/researchgroup/all",
-  allContext: "/researchgroup/byId?",
+  researchGroupAllContext: "/researchgroup/all", 
+  researchGroupIdContext: "/researchgroup/byId?",
+  researchGroupGetTopicsContext: "/topic/researchgroup/all?",
+  deleteTopicContext: "/topic/delete?",
 
-  idArgument: "researchGroupId="
+  researchGroupIdArgument: "researchGroupId=",
+  idArgument: "id="
 };
 
 /*

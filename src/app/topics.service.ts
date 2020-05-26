@@ -30,23 +30,45 @@ export class TopicsService {
   }
 
   setTopics (topic:any)  {
-    return this.http.post<any>(environment.dbUrl+environment.postContext, topic).subscribe(console.log);
+
+    const auth_token = this.cookieService.get("tp_loginToken")
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': "Bearer " +auth_token
+    }
+
+    return this.http.post<any>(environment.dbUrl+environment.saveTopicContext, topic, {headers});
   }
 
-  // getAllResearchGroups(){
-  //   // return this.http.get<any>(environment.dbUrl+environment.researchGroupAllContext);
-  //       return this.http.get<any>("http://admin.thesis.cs.ovgu.de/core/topic/all")
-
-  // }
-
-  getAllResearchGroups(): Observable<any> {
+  getCurrentResearchGroup(): Observable<any> {
     const auth_token = this.cookieService.get("tp_loginToken")
-    console.log(auth_token)
-    const headers = new Headers({
+    const reserchgroupId = this.cookieService.get("tp_researchGroupId")
+    // console.log(auth_token)
+    const headers = {
       'Content-Type': 'application/json',
-      'Authorization': auth_token
-    })
-    // return this.http.get<any>(environment.dbUrl+environment.researchGroupAllContext)
-    return this.http.get<any>("http://admin.thesis.cs.ovgu.de/core/topic/all")
+      'Authorization': "Bearer " +auth_token
+    }
+    return this.http.get<any>(environment.dbUrl+environment.researchGroupIdContext+environment.researchGroupIdArgument+reserchgroupId, {headers})
+    // return this.http.get<any>("http://admin.thesis.cs.ovgu.de/core/topic/all")
   } 
+
+  getResearchGroupTopics(): Observable<any>{
+    const auth_token = this.cookieService.get("tp_loginToken")
+    const reserchgroupId = this.cookieService.get("tp_researchGroupId")
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': "Bearer " +auth_token
+    }
+    return this.http.get<any>(environment.dbUrl+environment.researchGroupGetTopicsContext+environment.researchGroupIdArgument+reserchgroupId, {headers})
+  }
+
+  deleteTopic(id): Observable<any>{
+    const auth_token = this.cookieService.get("tp_loginToken")
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': "Bearer " +auth_token
+    }
+    return this.http.delete<any>(environment.dbUrl+environment.deleteTopicContext+environment.idArgument+id, {headers})
+  }
+
 }

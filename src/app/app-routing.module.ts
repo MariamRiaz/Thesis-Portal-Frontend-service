@@ -6,7 +6,8 @@ import { HomeComponent } from './home/home.component'
 import { SearchDisplayComponent } from './search-display/search-display.component';
 import { UnderConstructionComponent } from './under-construction/under-construction.component';
 import { LoginComponent } from './login/login.component';
-import { SupervisorDashboardComponent } from './supervisor-dashboard/supervisor-dashboard.component'
+import { SupervisorDashboardComponent } from './supervisor-dashboard/supervisor-dashboard.component';
+import { SupervisorDisplayTopicsComponent } from './supervisor-display-topics/supervisor-display-topics.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'search-display', component: SearchDisplayComponent },
   { path: 'login', component: LoginComponent },
   { path: 'supervisor-dashboard', component: SupervisorDashboardComponent },
+  { path: 'supervisor-display-topics', component: SupervisorDisplayTopicsComponent },
   { path: 'uc', component: UnderConstructionComponent },
   { path: '**', redirectTo: '' }
 ];

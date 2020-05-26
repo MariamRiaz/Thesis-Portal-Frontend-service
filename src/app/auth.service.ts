@@ -28,6 +28,15 @@ export class AuthService {
   constructor(private router: Router, private notifyService: NotificationService,private cookieService: CookieService, private http: HttpClient) { 
     this.user = new User()
     this.token = new Token()
+    if(this.cookieService.get("tp_user")){
+      // console.log("user present")
+      this.loginImageSource.next(this.logoutIcon);
+      this.loginStateSource.next(true);
+    }
+    else {
+      // console.log("user not present")
+    }
+    // console.log("user: " + this.cookieService.get("tp_user"))
   }
 
   login(username, password){
@@ -68,11 +77,8 @@ export class AuthService {
   }
 
   logout(){
-
-
     this.loginImageSource.next(this.loginIcon);
     this.loginStateSource.next(false);
     this.cookieService.deleteAll();  
-    //TODO
   }
 }

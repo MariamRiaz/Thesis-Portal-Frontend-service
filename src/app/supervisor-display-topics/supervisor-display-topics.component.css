@@ -1,0 +1,24 @@
+.card {width: 75%;}
+.card {
+  margin: 0 auto; 
+  float: none; 
+  margin-bottom: 10px;
+}
+
+.topics-container{
+padding-top: 10px;
+padding-bottom: 35px;
+}
+
+
+.edit-button{
+    margin-left: 8px;
+}
+
+.delete-button{
+    margin-left: 8px;
+}
+
+.action-buttons{
+    margin-top: 5px;
+}
