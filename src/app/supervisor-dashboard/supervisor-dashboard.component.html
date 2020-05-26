@@ -3,9 +3,15 @@
         <div class="title">
             Dashboard
         </div>
+        <div>
+            Welcome {{user}}
+        </div>
+        <div>
+            Research Group: {{researchGroup}}
+        </div>
         <div class="options">
             <button type="button" class="all-topics-button" [routerLink]="['/create-topic']">Create topic</button>
-            <button type="button" class="all-topics-button" [routerLink]="['/uc']">Update/Delete topics</button>
+            <button type="button" class="all-topics-button" [routerLink]="['/supervisor-display-topics']">Update/Delete topics</button>
         </div>
     </div>
 </div>

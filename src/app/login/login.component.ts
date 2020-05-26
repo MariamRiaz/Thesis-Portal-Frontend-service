@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { CookieService }from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -13,23 +14,27 @@ export class LoginComponent implements OnInit {
   username:String;
   password:String;
   
-  constructor(private router: Router, private auth: AuthService) { }
+  constructor(private cookieService: CookieService, private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
-  }
-
-  login(data: NgForm){
-    if (data.form.valid) {
-
-      // console.log("authenticating...")
-      this.auth.login(data.value.username, data.value.password)
-      
+    if(this.cookieService.get("tp_user")){
+      // console.log("user present")
       this.router.navigate(['/', 'supervisor-dashboard']).then(nav => {
         console.log(nav); // true if navigation is successful
       }, err => {
         console.log(err) // when there's an error
       });
     }
+    else {
+      // console.log("user not present")
+    }
+  }
+
+  login(data: NgForm){
+    if (data.form.valid) {
+      this.auth.login(data.value.username, data.value.password)
+    }
+    
   }
 
 }
