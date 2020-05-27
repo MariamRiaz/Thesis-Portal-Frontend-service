@@ -1,3 +1,7 @@
+<div class="options">
+    <button type="button" class="all-topics-button" [routerLink]="['/supervisor-dashboard']">Go to dashboard</button>
+    <button type="button" class="all-topics-button" [routerLink]="['/supervisor-display-topics']">Update/Delete topics</button>
+</div>
 <div class="container">
     <div class="row border">
         <div class="col-sm-12">
@@ -96,7 +100,7 @@
                         <div [ngClass]="{'has-error': !datefield.valid && isSubmitted}">
                             <div class="input-group">
 
-                                <input class="form-control" placeholder="YYYY-MM-DD" name="startDate" [(ngModel)]="topic.startDate" #datefield="ngModel" ngbDatepicker #d="ngbDatepicker">
+                                <input type="text" class="form-control" placeholder="YYYY-MM-DD" name="startDate" [(ngModel)]= "topic.startDate" #datefield="ngModel" ngbDatepicker #d="ngbDatepicker">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary fa fa-calendar" (click)="d.toggle()" type="button">
 
@@ -110,28 +114,37 @@
                     </div>
                 </div>
                 <div class="col-sm-12 text-center">
-                    <button type="submit" class="btn btn-outline-primary text-center">Create Topic</button>
+                    <button type="submit" class="btn btn-outline-primary text-center">
+                        <div *ngIf="!editTopic">Create Topic</div>
+                        <div *ngIf="editTopic">Update Topic</div>
+                    
+                    </button>
                 </div>
 
 
             </form>
 
         </div>
-        <div class="options">
-            <button type="button" class="all-topics-button" [routerLink]="['/supervisor-dashboard']">Go to dashboard</button>
-            <button type="button" class="all-topics-button" [routerLink]="['/uc']">Update/Delete topics</button>
-        </div>
+        
     </div>
 
-
-
-    <app-modal id="topic-modal">
+    <app-modal id="topic-created-modal">
         <h1 class="text-center" mat-dialog-title>Success</h1>
         <div mat-dialog-content>
             <p class="text-center">The topic is sucessfully created</p>
         </div>
         <div class="right-align" mat-dialog-actions>
-            <button mat-button (click)="closeModal('topic-modal');" cdkFocusInitial>Ok</button>
+            <button mat-button (click)="closeModal('topic-created-modal');" cdkFocusInitial>Ok</button>
+        </div>
+    </app-modal>
+
+    <app-modal id="topic-up-modal">
+        <h1 class="text-center" mat-dialog-title>Success</h1>
+        <div mat-dialog-content>
+            <p class="text-center">The topic is sucessfully updated</p>
+        </div>
+        <div class="right-align" mat-dialog-actions>
+            <button mat-button (click)="closeModal('topic-up-modal');" cdkFocusInitial>Ok</button>
         </div>
     </app-modal>
 

@@ -29,9 +29,9 @@
   }
   
   .options {
-      border-top: 1px solid rgb(159, 171, 212);
-      margin-top: 20px;
-      padding-top: 10px;
+     border-bottom: 2px solid #0068b4;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
       display: flex;
       justify-content: space-around;
       width: 100%;
@@ -39,16 +39,15 @@
   }
   
   .options>button {
-      margin-left: 10px;
-      margin-left: 10px;
-      border: white;
-      border-bottom: 2px solid rgb(205, 227, 255);
-      background: transparent;
-      outline: none;
+    margin-left: 10px;
+    border: 2px solid rgb(205, 227, 255);
+    background: transparent;
+    outline: none;
+    padding: 10px;
   }
   
   .options>button:hover {
-      border-bottom: 2px solid #0068b4;
+      border: 2px solid #0068b4;
       -webkit-box-shadow: 0 4px 6px -6px #0068b4;
       -moz-box-shadow: 0 4px 6px -6px #0068b4;
       box-shadow: 0 11px 14px -11px #0068b4;
@@ -62,3 +61,8 @@
   button:hover {
       transition: background 1s, color 1s;
   }
+
+  button.mat-button.mat-button-base {
+    margin: 10px;
+    outline: none;
+}

@@ -12,7 +12,7 @@ import { SupervisorDisplayTopicsComponent } from './supervisor-display-topics/su
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'create-topic', component: DummyComponent },
+  { path: 'create-topic/:id', component: DummyComponent },
   { path: 'display-topics', component: DisplayTopicsComponent },
   { path: 'search-display', component: SearchDisplayComponent },
   { path: 'login', component: LoginComponent },

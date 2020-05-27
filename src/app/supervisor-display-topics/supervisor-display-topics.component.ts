@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TopicsService } from '../topics.service';
 import { CookieService }from 'ngx-cookie-service';
 import { Router } from '@angular/router';
+import {ModalComponent} from '../modal/modal.component';
+import { ModalService } from  '../modal.service';
 
 @Component({
   selector: 'app-supervisor-display-topics',
@@ -12,8 +14,9 @@ export class SupervisorDisplayTopicsComponent implements OnInit {
   topics: any = [];
   showContent : boolean = false;
   togglePanel: boolean[] ;
+  private todeleteId : string;
 
-  constructor(private router: Router, private cookieService: CookieService, private topicService: TopicsService) {
+  constructor(private router: Router, private cookieService: CookieService, private topicService: TopicsService, private modalService: ModalService) {
     this.togglePanel = []
     // console.log(this.togglePanel)
    }
@@ -60,19 +63,36 @@ export class SupervisorDisplayTopicsComponent implements OnInit {
 
   editTopic(i){
     console.log(this.topics[i])
+    this.router.navigate(['/create-topic/'+this.topics[i].thesisTopicId]).then(nav => {
+      console.log(nav); // true if navigation is successful
+    }, err => {
+      console.log(err) // when there's an error
+    });
   }
 
-  deleteTopic(i){
-    console.log(this.topics[i].thesisTopicId)
-    this.topicService.deleteTopic(this.topics[i].thesisTopicId).subscribe((x) =>{
+  confirmDelete(i){
+    this.todeleteId = i;
+    this.openModal('topic-del-modal');
+  }
+
+  deleteTopic(){
+    console.log(this.topics[this.todeleteId].thesisTopicId)
+    this.topicService.deleteTopic(this.topics[this.todeleteId].thesisTopicId).subscribe((x) =>{
+      
+      // TODO add modal
+
       console.log(x)
-
-      this.router.navigate(['/', 'supervisor-display-topics']).then(nav => {
-        console.log(nav); // true if navigation is successful
-      }, err => {
-        console.log(err) // when there's an error
-      });
+      
+      this.getTopics()
+      this.closeModal('topic-del-modal')
     })
+
+  }
+  openModal(id: string) {
+    this.modalService.open(id);
   }
 
+  closeModal(id: string) {
+    this.modalService.close(id);
+  }
 }
