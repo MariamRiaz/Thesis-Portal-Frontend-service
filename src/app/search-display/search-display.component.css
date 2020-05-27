@@ -5,6 +5,58 @@
   margin-bottom: 10px;
 }
 
-.collapse{
-/* display: none; */
+.topics-container{
+padding-top: 10px;
+padding-bottom: 35px;
+}
+
+.action-buttons{
+margin-top: 16px;
+}
+
+.card-text{
+display: flex;
+}
+
+.label{
+margin-right: 5px;
+font-weight: bold;
+}
+.options {
+border-bottom: 1px solid rgb(159, 171, 212);
+margin-bottom: 20px;
+padding-bottom: 10px;
+display: flex;
+justify-content: space-around;
+width: 100%;
+justify-content: center;
+}
+
+.options>button {
+margin-left: 10px;
+margin-left: 10px;
+border: white;
+border: 2px solid rgb(205, 227, 255);
+background: transparent;
+outline: none;
+}
+
+.options>button:hover {
+border: 2px solid #0068b4;
+-webkit-box-shadow: 0 4px 6px -6px #0068b4;
+-moz-box-shadow: 0 4px 6px -6px #0068b4;
+box-shadow: 0 11px 14px -11px #0068b4;
+transition: box-shadow 0.7s, border 0.7s;
+}
+
+button {
+border-radius: 30px;
+}
+
+button:hover {
+transition: background 1s, color 1s;
+}
+
+#collapseable {
+margin-top: 15px;
 }
