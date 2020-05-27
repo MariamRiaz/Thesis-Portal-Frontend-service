@@ -9,6 +9,7 @@ export const environment = {
   researchGroupIdContext: "/researchgroup/byId?",
   researchGroupGetTopicsContext: "/topic/researchgroup/all?",
   deleteTopicContext: "/topic/delete?",
+  updateTopicContext: "/topic/update",
 
   researchGroupIdArgument: "researchGroupId=",
   idArgument: "id="

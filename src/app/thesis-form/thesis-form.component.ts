@@ -9,6 +9,8 @@ import {ModalComponent} from '../modal/modal.component';
 import { CookieService }from 'ngx-cookie-service';
 import {Topic} from '../Topic';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+// import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-thesis-form',
@@ -24,10 +26,12 @@ export class DummyComponent implements OnInit {
   date: { year: number, month: number };
   isSubmitted = false;
   public researchGroup:string;
+  public editTopic:boolean;
 
 
 // for the service declare private variable 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     private cookieService: CookieService,
     private calendar: NgbCalendar,
@@ -50,6 +54,22 @@ export class DummyComponent implements OnInit {
       });
       // console.log("user not present")
     }
+
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    if(id != "NULL"){
+      this.editTopic = true
+      this.topicsService.getResearchGroupTopics().subscribe((x) => {
+        console.log(x)
+        const result = x.find( ({ thesisTopicId }) => thesisTopicId === id );
+        console.log("Result : "+result.thesisTopicId)
+        this.topic=result
+      })      
+    }
+    else{
+      this.editTopic = false
+      console.log("Id not found")
+    }
+    
 
     this.bodyText = 'This text can be updated in modal 1';
     this.getResearchGroup()
@@ -96,23 +116,21 @@ export class DummyComponent implements OnInit {
       startDate = startDate + data.value.startDate.day 
       console.log(startDate)
 
-      var request = new Topic()
-      request.title = data.value.title
+      console.log("testing topic : " + this.topic)
+
+      var request = this.topic
       request.researchGroupId = this.cookieService.get("tp_researchGroupId")
-      request.supervisor = data.value.supervisor
-      request.description = data.value.description
-      request.mustHave = data.value.mustHave
-      request.niceHave = data.value.niceHave
-      request.contactInfo = data.value.contactInfo
       request.startDate = startDate
       request.createdOn = startDate // TODO : add current date 
 
       console.log("request : "+request)
 
+      if(!this.editTopic){
+
       this.topicsService.setTopics(request).subscribe ((x) => {
         console.log(x)
         if(x.thesisTopicId){
-          this.openModal('topic-modal');
+          this.openModal('topic-created-modal');
         }
         else{
           // TODO : ADD ERROR MODAL
@@ -123,6 +141,23 @@ export class DummyComponent implements OnInit {
         // TODO : ADD ERROR MODAL
 
       });
+    }
+    else{
+      this.topicsService.editTopics(request).subscribe ((x) => {
+        console.log(x)
+        if(x.thesisTopicId){
+          this.openModal('topic-up-modal');
+        }
+        else{
+          // TODO : ADD ERROR MODAL
+        }
+      },err => {
+
+        console.log("Error communication with database !! ")
+        // TODO : ADD ERROR MODAL
+
+      });
+    }
 
       data.form.reset();
     }

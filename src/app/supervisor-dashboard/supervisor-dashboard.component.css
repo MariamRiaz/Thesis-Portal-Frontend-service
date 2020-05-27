@@ -11,14 +11,14 @@
 }
 
 .options {
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     justify-content: space-around;
 }
 
 .options > button {
     margin-left: 10px;
-    margin-left: 10px;
+    margin-right: 10px;
     border: white;
     border-bottom: 2px solid rgb(205, 227, 255);
     background: transparent;
@@ -44,4 +44,8 @@
     .search {
         width: 100%;
     }
+}
+
+.profile-info{
+    text-align: center;
 }

@@ -71,4 +71,17 @@ export class TopicsService {
     return this.http.delete<any>(environment.dbUrl+environment.deleteTopicContext+environment.idArgument+id, {headers})
   }
 
+  
+  editTopics (topic:any)  {
+
+    const auth_token = this.cookieService.get("tp_loginToken")
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': "Bearer " +auth_token
+    }
+
+    return this.http.post<any>(environment.dbUrl+environment.updateTopicContext, topic, {headers});
+  }
+
+
 }
