@@ -6,7 +6,7 @@
         </h4>
         <div class="card-body">
             <div class="card-text mb-2 text-muted"> <p class = "label">Supervisor : </p> {{topic.supervisor}} </div>
-            <div class="card-text"><p class = "label">Research Group :  </p>{{topic.researchGroup}} </div>
+            <!-- <div class="card-text"><p class = "label">Research Group :  </p>{{topic.researchGroup}} </div> -->
             <div class="card-text"><p class = "label">Start Date : </p>{{topic.startDate| date}}</div>
             <div class="card-text">{{topic.description}}</div>
             <div id="collapseable" [ngbCollapse]="!togglePanel[i]">
