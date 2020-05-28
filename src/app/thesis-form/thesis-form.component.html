@@ -76,7 +76,7 @@
                     <label class="col-sm-3 col-form-label" for="requirements">Nice to Have : </label>
                     <div class="col-sm-9">
                         <div [ngClass]="{'has-error': !reqfield.valid && isSubmitted}">
-                            <input type="text" class="form-control" id="niceHave" name="niceHave" placeholder="Must Have Skills for People Applying" required [(ngModel)]="topic.niceHave" #reqfield="ngModel">
+                            <input type="text" class="form-control" id="niceHave" name="niceHave" placeholder="Nice to have Skills for People Applying" required [(ngModel)]="topic.niceHave" #reqfield="ngModel">
                         </div>
                         <div class="alert alert-danger" *ngIf=" !reqfield.valid && isSubmitted">
                             This field is required
